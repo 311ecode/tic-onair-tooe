@@ -1,0 +1,46 @@
+{
+  "name": "tic-tac-valid",
+  "version": "1.0.0",
+  "description": "Checks if Tic Tac Toe table is valid",
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "scripts": {
+    "tsxart": "node --import tsx/esm src/backend/index.ts",
+    "start:backend": "node dist/index.js",
+    "test:backend": "node --test --import tsx/esm",
+    "build:backend": "tsup src/backend/index.ts --format esm,cjs --dts --clean --sourcemap",
+    "build:backend:watch": "tsup src/backend/index.ts --format esm,cjs --dts --clean --sourcemap --watch",
+    "dev:backend": "tsup src/backend/index.ts --format esm,cjs --watch",
+    "typecheck:backend": "tsc --noEmit",
+    "test": "npm run test:backend",
+    "build": "npm run build:backend"
+  },
+  "keywords": [],
+  "dependencies": {
+    "tic-tac-types": "^1.0.0"
+  },
+  "devDependencies": {
+    "tsup": "^8.0.2",
+    "tsx": "^4.7.2",
+    "typescript": "^5.3.3"
+  },
+  "files": [
+    "dist"
+  ]
+}
