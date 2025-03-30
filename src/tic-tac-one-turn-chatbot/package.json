@@ -1,0 +1,44 @@
+{
+  "name": "tic-tac-one-turn-chatbot",
+  "version": "1.0.0",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "start:backend": "node dist/backend/index.js",
+    "test:backend": "node --test --import tsx/esm test/**/*.test.ts",
+    "build:backend": "tsup src/backend/index.ts --format esm,cjs --dts --clean --sourcemap",
+    "build:backend:watch": "tsup src/backend/index.ts --format esm,cjs --dts --clean --sourcemap --watch",
+    "dev:backend": "tsup src/backend/index.ts --format esm,cjs --watch",
+    "typecheck:backend": "tsc --noEmit",
+    "test": "npm run typecheck:backend && npm run test:backend",
+    "build": "npm run build:backend",
+    "play": "tsx examples/play-game.ts"
+  },
+  "keywords": [
+    "tic-tac-toe",
+    "game",
+    "ai",
+    "deepseek",
+    "chatbot"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "Tic Tac Toe game with AI opponent using DeepSeek API for intelligent moves",
+  "dependencies": {
+    "dotenv": "^16.3.2",
+    "tic-tac-toe-ai-clients": "^1.0.0",
+    "tic-tac-types": "^1.0.0",
+    "tic-tac-valid": "^1.0.0",
+    "tic-tac-winner": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.7",
+    "tsup": "^8.0.2",
+    "tsx": "^4.7.2",
+    "typescript": "^5.3.3"
+  },
+  "type": "module",
+  "files": [
+    "dist"
+  ]
+}
