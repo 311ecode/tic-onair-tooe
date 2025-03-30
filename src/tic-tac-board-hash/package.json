@@ -1,0 +1,47 @@
+{
+  "name": "tic-tac-board-hash",
+  "version": "1.0.0",
+  "description": "Generates hashes for Tic Tac Toe boards",
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "scripts": {
+    "tsxart": "node --import tsx/esm src/backend/index.ts",
+    "start:backend": "node dist/index.js",
+    "test:backend": "node --test --import tsx/esm",
+    "build:backend": "tsup src/backend/index.ts --format esm,cjs --dts --clean --sourcemap",
+    "build:backend:watch": "tsup src/backend/index.ts --format esm,cjs --dts --clean --sourcemap --watch",
+    "typecheck:backend": "tsc --project tsconfig.json --noEmit",
+    "test": "npm run test:backend",
+    "build": "npm run build:backend"
+  },
+  "keywords": [],
+  "dependencies": {
+    "object-hash": "^3.0.0",
+    "tic-tac-types": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/object-hash": "^3.0.6",
+    "tsup": "^8.0.2",
+    "tsx": "^4.7.2",
+    "typescript": "^5.3.3"
+  },
+  "files": [
+    "dist"
+  ]
+}
