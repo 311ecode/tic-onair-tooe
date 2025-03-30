@@ -1,0 +1,53 @@
+{
+  "targetDefaults": {
+    "start": {
+      "dependsOn": []
+    },
+    "test": {
+      "cache": true,
+      "dependsOn": [
+        "^test"
+      ],
+      "outputs": [
+        "{projectRoot}/coverage"
+      ]
+    },
+    "test:ci": {
+      "dependsOn": []
+    },
+    "build": {
+      "cache": true,
+      "dependsOn": [],
+      "outputs": [
+        "{projectRoot}/dest"
+      ]
+    },
+    "start:build": {
+      "dependsOn": []
+    },
+    "dev": {
+      "dependsOn": []
+    },
+    "lint": {
+      "dependsOn": [
+        "^lint"
+      ]
+    },
+    "lint:fix": {
+      "dependsOn": [
+        "^lint:fix"
+      ]
+    },
+    "format": {
+      "dependsOn": [
+        "^format"
+      ]
+    },
+    "typecheck": {
+      "dependsOn": []
+    },
+    "watch": {
+      "dependsOn": []
+    }
+  }
+}
