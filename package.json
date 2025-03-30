@@ -12,7 +12,7 @@
   },
   "scripts": {
     "prepare": "husky",
-    "test": "npm run build; npx lerna run test",
+    "test": "npm install && npm run build && npx lerna run test",
     "build": "npx lerna run build"
   }
 }
