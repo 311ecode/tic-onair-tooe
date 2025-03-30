@@ -1,0 +1,54 @@
+{
+  "name": "tic-tac-db",
+  "version": "1.0.0",
+  "description": "Database module for Tic Tac Toe game results",
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "scripts": {
+    "start:backend": "node dist/index.js",
+    "test:backend": "node --import tsx/esm --test",
+    "build:backend": "tsup src/backend/index.ts --format esm,cjs --dts --clean --sourcemap",
+    "build:backend:watch": "tsup src/backend/index.ts --format esm,cjs --dts --clean --sourcemap --watch",
+    "dev:backend": "tsup src/backend/index.ts --format esm,cjs --watch",
+    "typecheck:backend": "tsc --project tsconfig.json --noEmit",
+    "test": "npm run typecheck:backend && npm run test:backend",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "tsx src/backend/db/migrate.ts",
+    "db:studio": "drizzle-kit studio",
+    "build": "npm run build:backend"
+  },
+  "keywords": [],
+  "dependencies": {
+    "better-sqlite3": "^11.9.1",
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.33.0",
+    "tic-tac-types": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.11",
+    "drizzle-kit": "^0.24.2",
+    "tsup": "^8.4.0",
+    "tsx": "^4.19.3",
+    "typescript": "^5.8.2"
+  },
+  "files": [
+    "dist",
+    "drizzle"
+  ]
+}
