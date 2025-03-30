@@ -1,0 +1,54 @@
+{
+  "name": "tic-tac-toe-ai-clients",
+  "version": "1.0.0",
+  "description": "AI Clients for Tic Tac Toe (DeepSeek, Simple Fallback)",
+  "license": "ISC",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "scripts": {
+    "start": "node dist/index.js",
+    "build": "tsup src/backend/index.ts --format esm,cjs --dts --clean --sourcemap",
+    "build:watch": "tsup src/backend/index.ts --format esm,cjs --dts --clean --sourcemap --watch",
+    "dev": "tsup src/backend/index.ts --format esm,cjs --watch",
+    "test": "node --test --import tsx/esm test/**/*.test.ts",
+    "typecheck": "tsc --project tsconfig.node.json --noEmit"
+  },
+  "keywords": [
+    "tic-tac-toe",
+    "ai",
+    "deepseek",
+    "game",
+    "client"
+  ],
+  "author": "",
+  "dependencies": {
+    "dotenv": "^16.3.2",
+    "tic-tac-types": "^1.0.0",
+    "tic-tac-valid": "^1.0.0",
+    "tic-tac-winner": "^1.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.7",
+    "tsup": "^8.0.2",
+    "tsx": "^4.7.2",
+    "typescript": "^5.3.3"
+  },
+  "files": [
+    "dist",
+    "src/backend/ai"
+  ]
+}
